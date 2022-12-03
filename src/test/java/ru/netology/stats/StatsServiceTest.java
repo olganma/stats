@@ -11,7 +11,7 @@ public class StatsServiceTest {
         StatsService service = new StatsService();
         long[] salesTest = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expectedSalesSum = 180;
-        int actualSalesSum = service.SumSales(salesTest);
+        int actualSalesSum = service.sumSales(salesTest);
         Assertions.assertEquals(expectedSalesSum, actualSalesSum);
     }
 
@@ -21,7 +21,7 @@ public class StatsServiceTest {
         StatsService service = new StatsService();
         long[] salesTest = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expectedAvgSalesSum = 15;
-        int actualAvgSalesSum = service.AverageSumSales(salesTest);
+        int actualAvgSalesSum = service.averageSumSales(salesTest);
         Assertions.assertEquals(expectedAvgSalesSum, actualAvgSalesSum);
     }
 
@@ -51,7 +51,7 @@ public class StatsServiceTest {
         StatsService service = new StatsService();
         long[] salesTest = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expectedQtyLowSaleMonth = 5;
-        int actualQtyLowSaleMonth = service.QtyMonthBelowAvgSales(salesTest);
+        int actualQtyLowSaleMonth = service.qtyMonthBelowAvgSales(salesTest);
         Assertions.assertEquals(expectedQtyLowSaleMonth, actualQtyLowSaleMonth);
     }
 
@@ -61,7 +61,7 @@ public class StatsServiceTest {
         StatsService service = new StatsService();
         long[] salesTest = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expectedQtyHighSaleMonth = 5;
-        int actualQtyHighSaleMonth = service.QtyMonthOverAvgSales(salesTest);
+        int actualQtyHighSaleMonth = service.qtyMonthOverAvgSales(salesTest);
         Assertions.assertEquals(expectedQtyHighSaleMonth, actualQtyHighSaleMonth);
     }
 

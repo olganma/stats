@@ -3,7 +3,7 @@ package ru.netology.stats;
 public class StatsService {
 
     // Сумма всех продаж
-    public int SumSales(long[] sales) {
+    public int sumSales(long[] sales) {
         int salesAmount = 0;
         for (int i = 0; i < sales.length; i++) {
             salesAmount += sales[i];
@@ -12,12 +12,8 @@ public class StatsService {
     }
 
     // Средняя сумма продаж в месяц
-    public int AverageSumSales(long[] sales) {
-        int salesAmount = 0;
-        for (int i = 0; i < sales.length; i++) {
-            salesAmount += sales[i];
-        }
-        int avgSalesAmount = salesAmount / sales.length;
+    public int averageSumSales(long[] sales) {
+        int avgSalesAmount = sumSales(sales) / sales.length;
         return avgSalesAmount;
     }
 
@@ -50,34 +46,22 @@ public class StatsService {
     }
 
     // Количество месяцев, в которых продажи были ниже среднего
-    public int QtyMonthBelowAvgSales(long[] sales) {
-        int salesAmount = 0;
-        for (int i = 0; i < sales.length; i++) {
-            salesAmount += sales[i];
-        }
-        int avgSalesAmount = salesAmount / sales.length;
-
+    public int qtyMonthBelowAvgSales(long[] sales) {
         int qtyLowSaleMonth = 0;
         for (long sale : sales) {
-            if (sale < avgSalesAmount) {
-                qtyLowSaleMonth ++;
+            if (sale < averageSumSales(sales)) {
+                qtyLowSaleMonth++;
             }
         }
         return qtyLowSaleMonth;
     }
 
     // Количество месяцев, в которых продажи были выше среднего
-    public int QtyMonthOverAvgSales(long[] sales) {
-        int salesAmount = 0;
-        for (int i = 0; i < sales.length; i++) {
-            salesAmount += sales[i];
-        }
-        int avgSalesAmount = salesAmount / sales.length;
-
+    public int qtyMonthOverAvgSales(long[] sales) {
         int qtyHighSaleMonth = 0;
         for (long sale : sales) {
-            if (sale > avgSalesAmount) {
-                qtyHighSaleMonth ++;
+            if (sale > averageSumSales(sales)) {
+                qtyHighSaleMonth++;
             }
         }
         return qtyHighSaleMonth;
