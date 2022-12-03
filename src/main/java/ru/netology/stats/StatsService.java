@@ -48,8 +48,9 @@ public class StatsService {
     // Количество месяцев, в которых продажи были ниже среднего
     public int qtyMonthBelowAvgSales(long[] sales) {
         int qtyLowSaleMonth = 0;
+        long avgSalesAmount = averageSumSales(sales);
         for (long sale : sales) {
-            if (sale < averageSumSales(sales)) {
+            if (sale < avgSalesAmount) {
                 qtyLowSaleMonth++;
             }
         }
@@ -59,8 +60,9 @@ public class StatsService {
     // Количество месяцев, в которых продажи были выше среднего
     public int qtyMonthOverAvgSales(long[] sales) {
         int qtyHighSaleMonth = 0;
+        long avgSalesAmount = averageSumSales(sales);
         for (long sale : sales) {
-            if (sale > averageSumSales(sales)) {
+            if (sale > avgSalesAmount) {
                 qtyHighSaleMonth++;
             }
         }
